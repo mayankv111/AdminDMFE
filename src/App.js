@@ -85,6 +85,10 @@ export default function App() {
       let res = await axios.post(`/api/upload-users` ,formData );
       console.log(res);
     }
+    if(action === 'apt'){
+      let res = await axios.put(`/api/upload-apt` , formData);
+      console.log(res);
+    }
   }
 
   return (
@@ -126,6 +130,7 @@ export default function App() {
           <MenuItem value="delete">Delete data</MenuItem>
           <MenuItem value="prop">Update properties data</MenuItem>
           <MenuItem value="user">Add User data</MenuItem>
+          <MenuItem value="apt">Upload Apartment data</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{  minWidth: 140 }}>
