@@ -93,6 +93,10 @@ export default function App() {
       let res = await axios.put(`/api/map-info` , formData);
       console.log(res);
     }
+    if(action === 'smap'){
+      let res = await axios.post(`/api/sector-map`, formData);
+      console.log(res);
+    }
   }
 
   return (
@@ -136,6 +140,7 @@ export default function App() {
           <MenuItem value="user">Add User data</MenuItem>
           <MenuItem value="apt">Upload Apartment data</MenuItem>
           <MenuItem value="map">Upload Map Info</MenuItem>
+          <MenuItem value="smap">Upload SectorMap data</MenuItem>
         </Select>
       </FormControl>
       <FormControl sx={{  minWidth: 140 }}>
