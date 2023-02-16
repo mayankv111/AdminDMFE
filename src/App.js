@@ -46,7 +46,6 @@ export default function App() {
 
   const handleChangeObject = (event) => {
     if(app=="") alert('Please select application and action');
-    else if(action=="") alert('Please select an action');
     else setObject(event.target.value);
   };
 
