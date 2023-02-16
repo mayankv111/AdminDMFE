@@ -38,14 +38,14 @@ export default function App() {
   };
 
   const handleChangeAction = (event) => {
-    if(app=="") alert('Please select an application');
+    if(app=="" && object=="") alert('Please select an application');
     else {
       setAction(event.target.value);
     }
   };
 
   const handleChangeObject = (event) => {
-    if(app=="" && action=="") alert('Please select application and action');
+    if(app=="") alert('Please select application and action');
     else if(action=="") alert('Please select an action');
     else setObject(event.target.value);
   };
@@ -111,6 +111,18 @@ export default function App() {
         </Select>
       </FormControl>
       <FormControl sx={{  minWidth: 140 }}>
+        <InputLabel id="demo-simple-select-readonly-label">Object</InputLabel>
+        <Select
+          labelId="demo-simple-select-readonly-label"
+          id="demo-simple-select-readonly"
+          value={object}
+          onChange={handleChangeObject}
+          autoWidth
+        >
+        {objects.map((obj) => <MenuItem value= {obj}>{obj}</MenuItem>)}
+        </Select>
+      </FormControl>
+      <FormControl sx={{  minWidth: 140 }}>
         <InputLabel id="demo-simple-select-readonly-label">Action</InputLabel>
         <Select
           labelId="demo-simple-select-readonly-label-small"
@@ -126,18 +138,6 @@ export default function App() {
           <MenuItem value="apt">Upload Apartment data</MenuItem>
           <MenuItem value="map">Upload Map Info</MenuItem>
           <MenuItem value="smap">Upload SectorMap data</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl sx={{  minWidth: 140 }}>
-        <InputLabel id="demo-simple-select-readonly-label">Object</InputLabel>
-        <Select
-          labelId="demo-simple-select-readonly-label"
-          id="demo-simple-select-readonly"
-          value={object}
-          onChange={handleChangeObject}
-          autoWidth
-        >
-        {objects.map((obj) => <MenuItem value= {obj}>{obj}</MenuItem>)}
         </Select>
       </FormControl>
     </Box>
