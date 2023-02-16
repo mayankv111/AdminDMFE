@@ -65,18 +65,6 @@ export default function App() {
     const formData = new FormData();
     formData.append('file',file);
     formData.append('object', object);
-    if(action === 'update'){
-      let res = await axios.put(`/api/update-data` , formData );
-      console.log(res);
-    }
-    if(action === 'add'){
-      let res = await axios.post(`/api/add-data` ,formData );
-      console.log(res);
-    }
-    if(action === 'delete'){
-      let res = await axios.delete(`/api/delete-data` , formData);
-      console.log(res);
-    }
     if(action === 'prop'){
       let res = await axios.put(`/api/update-properties` , formData);
       console.log(res);
@@ -133,9 +121,6 @@ export default function App() {
           label="Action"
           placeholder='Action'
         >
-          <MenuItem value="add">Add new data</MenuItem>
-          <MenuItem value="update">Update data</MenuItem>
-          <MenuItem value="delete">Delete data</MenuItem>
           <MenuItem value="prop">Update properties data</MenuItem>
           <MenuItem value="user">Add User data</MenuItem>
           <MenuItem value="apt">Upload Apartment data</MenuItem>
